@@ -8,6 +8,7 @@ namespace SepatedDbContextApplication.DataAccess
         Task<Datum> Find(int id);
         IEnumerable<Datum> GetAll();
         void Add(Datum datum);
+        void Update(Datum datum);
         void Remove(Datum datum);
         Task Save();
         Task<bool> IsConflict(Datum datum);

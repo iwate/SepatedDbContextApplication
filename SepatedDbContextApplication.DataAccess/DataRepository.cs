@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SepatedDbContextApplication.DataAccess
 {
-    public class DataRepository : IDataRepository
+    public class DataRepository : IDataRepository, IDisposable
     {
         private DataContext Db;
         public DataRepository(DataContext db)
@@ -27,6 +27,10 @@ namespace SepatedDbContextApplication.DataAccess
         {
             Db.Data.Add(datum);
         }
+        public void Update(Datum datum)
+        {
+            Db.Entry<Datum>(datum).State = System.Data.Entity.EntityState.Modified;
+        }
 
         public void Remove(Datum datum)
         {
@@ -40,6 +44,15 @@ namespace SepatedDbContextApplication.DataAccess
         public async Task<bool> IsConflict(Datum datum)
         {
             return await Db.Data.FindAsync(datum.Id) != null;
+        }
+
+        public void Dispose()
+        {
+            if (Db != null)
+            {
+                Db.Dispose();
+                Db = null;
+            }
         }
     }
 }
