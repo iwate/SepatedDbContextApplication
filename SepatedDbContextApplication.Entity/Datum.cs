@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace SepatedDbContextApplication.Entity
 {
-    class Program
+    public class Datum
     {
-        static void Main(string[] args)
-        {
-        }
+        public int Id { get; set; }
+        public string Text { get; set; }
     }
 }
