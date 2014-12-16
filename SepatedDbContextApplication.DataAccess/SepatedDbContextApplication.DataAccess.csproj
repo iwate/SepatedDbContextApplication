@@ -87,9 +87,11 @@
     <Compile Include="ApplicationSignInManager.cs" />
     <Compile Include="ApplicationUserManager.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="DataContextMigrations\Configuration.cs" />
     <Compile Include="DataRepository.cs" />
     <Compile Include="IDataRepository.cs" />
     <Compile Include="IdentityContext.cs" />
+    <Compile Include="IdentityContextMigrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
